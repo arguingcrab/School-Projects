@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sale>
+  <monthlySales month="January">
+    <sales>100</sales>
+  </monthlySales>
+  <monthlySales month="February">
+    <sales>200</sales>
+  </monthlySales>
+  <monthlySales month="March">
+    <sales>300</sales>
+  </monthlySales>
+  <monthlySales month="April">
+    <sales>500</sales>
+  </monthlySales>
+  <monthlySales month="May">
+    <sales>350</sales>
+  </monthlySales>
+  <monthlySales month="June">
+    <sales>600</sales>
+  </monthlySales>
+  <monthlySales month="July">
+    <sales>550</sales>
+  </monthlySales>
+  <monthlySales month="August">
+    <sales>400</sales>
+  </monthlySales>
+  <monthlySales month="September">
+    <sales>400</sales>
+  </monthlySales>
+  <monthlySales month="October">
+    <sales>350</sales>
+  </monthlySales>
+  <monthlySales month="November">
+    <sales>360</sales>
+  </monthlySales>
+  <monthlySales month="December">
+    <sales>400</sales>
+  </monthlySales>
+</Sale>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sale>
+  <quarterlySales quarter="1">
+    <sales region="North">2200000</sales>
+    <sales region="South">2500000</sales>
+    <sales region="West">2000000</sales>
+    <sales region="East">2100000</sales>
+  </quarterlySales>
+  <quarterlySales quarter="2">
+    <sales region="North">2700000</sales>
+    <sales region="South">2800000</sales>
+    <sales region="West">3000000</sales>
+    <sales region="East">2600000</sales>
+  </quarterlySales>
+  <quarterlySales quarter="3">
+    <sales region="North">3000000</sales>
+    <sales region="South">3100000</sales>
+    <sales region="West">3000000</sales>
+    <sales region="East">3200000</sales>
+  </quarterlySales>
+  <quarterlySales quarter="4">
+    <sales region="North">2900000</sales>
+    <sales region="South">2800000</sales>
+    <sales region="West">2500000</sales>
+    <sales region="East">3000000</sales>
+  </quarterlySales>
+</Sale>
