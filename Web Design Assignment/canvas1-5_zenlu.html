@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      #canvas1{
+        border: 1px solid black;  
+        background: #add8e6
+      }
+      
+      body{
+        margin: 0px;
+        padding:  0px;
+      }
+   
+    </style>
+    
+    <script>
+      function drawMe(){      
+        //reference to canvas
+        var canvas2 = document.getElementById("canvas1");
+        ctx = canvas2.getContext("2d");
+        var person;
+        var car;
+        //var t=0;
+        var posx=300;
+        var posy=200;
+        var rad=30;
+        var x=10,y=80;//initial size values
+        //var initx=200,inity=80;
+        var ix=10, iy=10; //increment x, y
+        var counter=0;
+        
+        
+        for(t=0; t<3; t++){ 
+          ctx.beginPath();
+          ctx.fillStyle="#a52a2a";      
+          ctx.fillRect(posx,posy,x,y);              
+          ctx.arc(posx+5, posy,rad , 0, Math.PI*2);
+          ctx.fillStyle="#32cd32";
+          ctx.closePath();
+          ctx.fill();
+          posx+=100;  
+        }       
+        //draw ground
+        ctx.beginPath();
+        ctx.fillStyle="#B8B800";      
+        ctx.fillRect(0,280,canvas2.width,200); 
+        ctx.closePath();
+        
+        //draw sun
+        ctx.beginPath();
+        ctx.arc(450, 50 ,rad , 0, Math.PI*2);
+        ctx.fillStyle="yellow";
+        ctx.closePath();
+        ctx.fill();
+        ctx.closePath();
+        
+        //draw cloud          
+        ctx.beginPath();
+        ctx.arc(100, 100 ,rad , 0, Math.PI*2);
+        ctx.arc(100, 100 ,rad , 0, Math.PI*2);
+        ctx.arc(150, 80 ,rad , 0, Math.PI*2);
+        ctx.arc(150, 80 ,rad , 0, Math.PI*2);
+        ctx.arc(130, 60 ,rad , 0, Math.PI*2);
+        ctx.arc(130, 60 ,rad , 0, Math.PI*2);
+        ctx.arc(90, 60 ,rad , 0, Math.PI*2);
+        ctx.arc(50, 80 ,rad , 0, Math.PI*2);
+        ctx.fillStyle="#659ec7";
+        ctx.closePath();
+        ctx.fill();
+        
+        //draw birds                
+        ctx.beginPath();
+        ctx.arc(200, 140 ,10 , Math.PI*1, Math.PI*2); ctx.arc(220, 140 ,10 , Math.PI*1, Math.PI*2);
+        ctx.lineWidth=1;
+        ctx.strokeStyle="black";
+        ctx.stroke();          
+        ctx.closePath();              
+        ctx.beginPath();
+        ctx.arc(150, 130 ,10 , Math.PI*1, Math.PI*2); ctx.arc(170, 130 ,10 , Math.PI*1, Math.PI*2);
+        ctx.lineWidth=1;
+        ctx.strokeStyle="black";
+        ctx.stroke();          
+        ctx.closePath();           
+        ctx.beginPath();
+        ctx.arc(100, 150 ,10 , Math.PI*1, Math.PI*2); ctx.arc(120, 150 ,10 , Math.PI*1, Math.PI*2);
+        ctx.lineWidth=1;
+        ctx.strokeStyle="black";
+        ctx.stroke();          
+        ctx.closePath();
+        
+        person=document.getElementById("person");
+        ctx.drawImage(person,200,200,50,100);
+        
+        car=document.getElementById("car");
+        ctx.drawImage(car,50,200,100,100);
+
+        //get mouse position
+        function getMousePos(canvas, evt) {
+          var rect = canvas.getBoundingClientRect();
+          return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+          };
+        }
+
+        canvas2.addEventListener('mousedown', function(evt) {
+          var mousePos = getMousePos(canvas2, evt);
+          //cloud event
+          if(mousePos.x < 175 && mousePos.x > 20 && mousePos.y < 115 && mousePos.y > 40 ){
+            window.location.assign("http://weather.gc.ca/city/pages/mb-38_metric_e.html")
+          }
+          //birds event
+          if(mousePos.x < 230 && mousePos.x > 85 && mousePos.y < 155 && mousePos.y > 120 ){
+            window.location.assign("http://en.wikipedia.org/wiki/Gull")
+          }
+          //trees event (1, 2, 3 since theres a wide space compared to birds)
+          if(mousePos.x < 340 && mousePos.x > 275 && mousePos.y < 280 && mousePos.y > 170 ||
+          mousePos.x < 440 && mousePos.x > 375 && mousePos.y < 280 && mousePos.y > 170 ||
+          mousePos.x < 540 && mousePos.x > 475 && mousePos.y < 280 && mousePos.y > 170){
+            window.location.assign("http://en.wikipedia.org/wiki/Willow")
+          }
+          //car event
+          if(mousePos.x < 145 && mousePos.x > 45 && mousePos.y < 285 && mousePos.y > 215 ){
+            window.location.assign("http://www.gm.ca")
+          }
+          //person event
+          if(mousePos.x < 250 && mousePos.x > 200 && mousePos.y < 285 && mousePos.y > 200 ){
+            window.location.assign("http://www.youtube.com/watch?v=oHg5SJYRHA0")
+          }
+          //sun event
+          if(mousePos.x < 480 && mousePos.x > 420 && mousePos.y < 80 && mousePos.y > 20 ){
+            window.location.assign("http://en.wikipedia.org/wiki/Sun")
+          }
+        }, false);
+      }
+    </script>
+  </head>
+  <body onload="drawMe()">
+  
+    <canvas id="canvas1" width="600" height="400"></canvas>
+    <img src="images/person.png" id="person" width="0" height="0" />
+    <img src="images/car.png" id="car" width="0" height="0" />
+
+  </body>
+  
+</html>
