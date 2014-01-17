@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      #canvas1{
+        border: 1px solid black;
+      }
+      
+      body{
+        margin: 0px;
+        padding:  0px;
+      }
+   
+    </style>
+    
+    <script>
+      function drawMe(){
+        //get element
+        var canvas2 = document.getElementById("canvas1");
+        var ctx = canvas2.getContext('2d');
+        
+        //center values
+        var rad = 50;//radius
+        var cx = canvas2.height - 50;//center x
+        var cy = 50;//center y
+                
+        function drawCircle() {
+            // draw circle
+          circle.x += curx;
+          circle.y += cury;
+          
+          ctx.beginPath();
+          ctx.arc(circle.x,circle.y,rad,0 * Math.PI,2 * Math.PI);
+          
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = 'black';
+          ctx.stroke();
+          
+          // bounc if a wall is hit
+          if (circle.y > canvas2.height || circle.y < 0) {
+              // Angle of Reflection
+              angle = 360 - angle;
+              circlePos();
+          }
+        }
+        var speed = 15;//speed of animation
+        var angle = 60; // angle of travel
+        var initpos = {x:50, y:50}; // Where do we start?
+        
+        var radians = 0;
+        var curx = 0;//current x y
+        var cury = 0;
+        var circle = {x:initpos.x, y:initpos.y};
+        circlePos();
+        
+        function circlePos() {
+        //update the position
+          radians = angle * Math.PI / 180;     
+          cury = Math.sin(radians) * speed;            
+          curx = Math.cos(radians) * speed;
+        }
+        
+        function loopCircle() {
+          window.setTimeout(loopCircle, 30);//30 slows it down, 10 is faster
+          drawCircle();
+        }
+        loopCircle();
+        
+      }
+    </script>
+  </head>
+  <body onload="drawMe()">
+  
+    <canvas id="canvas1" width="1000" height="400"></canvas>
+  
+  </body>
+  
+</html>

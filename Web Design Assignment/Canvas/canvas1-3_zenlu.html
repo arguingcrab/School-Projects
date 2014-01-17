@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      #canvas1{
+        border: 1px solid black;        
+        background: #122569;
+      }
+      
+      body{
+        margin: 0px;
+        padding:  0px;
+      }
+   
+    </style>
+    
+    <script>
+      function drawMe(){
+        //reference to canvas
+        var canvas2 = document.getElementById("canvas1");
+        ctx = canvas2.getContext("2d");
+        
+        //gradient
+        var grd=ctx.createRadialGradient(75,50,5,90,60,80);
+        grd.addColorStop(0,"#ff00ff");
+        grd.addColorStop(1,"white");
+                
+        //create circle
+        var cx = canvas2.width/2;
+        var cy = canvas2.height/2;
+        var rad = 50;
+        
+        
+        var gravity=0.3;//force that pulls down object
+        var bounce=0.6;//bounce rate
+        
+        //ball : coordinates, radius, colour, and velocity for falling
+        var ball={x:cx, y:cy, radius:rad, color:grd, vx:0 ,vy:1,
+          draw: function() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+            ctx.fillStyle=this.color;
+            ctx.fill();
+            ctx.lineWidth=1;
+            ctx.strokeStyle="black";
+            ctx.stroke();
+          }
+        };  
+        
+        function clearCanvas() {
+          ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+        }
+        function updateBall(){
+          clearCanvas();
+          ball.draw();
+          //add velocity to object
+          ball.y+=ball.vy;
+          //acceleration
+          ball.vy+=gravity;
+          
+          if(ball.y + ball.radius > canvas2.height) {
+          
+            //reposition
+            ball.y=canvas2.height-ball.radius;
+            //collision vs elasticity
+            ball.vy*= -bounce;
+          }
+        }
+        
+        function loopBounce() {
+            window.setTimeout(loopBounce, 30);//30 slows it down, 10 is faster
+            updateBall();
+        }
+        loopBounce();
+        //setInterval(updateBall, 1000/60);}
+      }
+    </script>
+  </head>
+  <body onload="drawMe()">
+  
+    <canvas id="canvas1" width="600" height="600"></canvas>
+  
+  </body>
+  
+</html>
