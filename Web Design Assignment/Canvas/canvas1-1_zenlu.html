@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      #canvas1{
+        border: 1px solid black;
+      }
+      
+      body{
+        margin: 0px;
+        padding:  0px;
+      }
+   
+    </style>
+    
+    <script>
+      function drawMe(){
+        //reference to canvas
+        var canvas2 = document.getElementById("canvas1");
+        var ctx = canvas2.getContext("2d");
+        
+        //create circle
+        var cx = canvas2.width/2;
+        var cy = canvas2.height/2;
+        var rad = 50;
+        
+        for(x=0;x<=500; x+=10){
+          //start a new patch for a-
+          ctx.beginPath();
+          
+          //define start angle (0) ending at angle 2*Math.PI
+          ctx.arc(x,75,rad,0*Math.PI,2*Math.PI,false);
+          
+          
+          ctx.lineWidth=1;
+          ctx.strokeStyle="black";
+          ctx.stroke();
+        }
+      }
+    </script>
+  </head>
+  <body onload="drawMe()">
+  
+    <canvas id="canvas1" width="600" height="600"></canvas>
+  
+  </body>
+  
+</html>
