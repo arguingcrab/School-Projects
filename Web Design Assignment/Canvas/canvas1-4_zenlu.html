@@ -9,8 +9,7 @@
       body{
         margin: 0px;
         padding:  0px;
-      }
-   
+      }   
     </style>
     
     <script>
@@ -25,27 +24,19 @@
         var canvas2 = document.getElementById("canvas1");
         ctx = canvas2.getContext("2d");
         
-        function drawRect(){     
-              
+        function drawRect(){                   
             ctx.fillStyle="red";
-            ctx.fillRect(0,0,x,y);
-            //ctx.lineWidth=5;
-            //ctx.stroke();
-            //ctx.fill();
-            
+            ctx.fillRect(0,0,x,y);            
         }
         function updateRect(){   
         
           if(x>=canvas2.width && y>=canvas2.height){                
             x=initx;
-            y=inity;             
-            
+            y=inity;
           }
           x+=ix;
           y+=iy;            
           drawRect();
-
-          
         }
         function loopRect() {                
           ctx.clearRect(0, 0, canvas2.width, canvas2.height);  
@@ -53,16 +44,10 @@
           updateRect();                      
         }
         loopRect();
-        
-        //drawRect();
-        //updateRect();
       }
     </script>
   </head>
-  <body onload="drawMe()">
-  
-    <canvas id="canvas1" width="600" height="400"></canvas>
-  
-  </body>
-  
+  <body onload="drawMe()">  
+    <canvas id="canvas1" width="600" height="400"></canvas>  
+  </body>  
 </html>
