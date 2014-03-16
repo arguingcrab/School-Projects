@@ -17,10 +17,6 @@
       <span><a href="about.php">About</a></span>
       <a href="roster.php">Roster</a>
       <a href="contact.php">Contact</a>
-      <!--<a href="">Community</a>
-      <a href="partners.php">Partners</a>=
-      <a href="register.php">Register</a>
-      <a href="login.php">Login</a>-->
       <form method="post" action="search.php" id="search">
         <input name="q" type="text" size="40" placeholder="Search..." />
       </form>      
@@ -31,12 +27,6 @@
         <h3>RRC</h3></a>        
       </div>
       <div id="about"> 
-        <!--
-        <nav class="members">
-          <img id="icon1" onclick="changeImage(1)"src="" alt="First" /> 
-          <img id="highlight" style="display:none; position:relative;" alt="" src="assets/playerchosen.png"/> 
-        </nav>  
-        -->
         <!-- Slider -->
         <div id="aboutslider">   
             <div class="desc">

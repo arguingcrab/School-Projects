@@ -2,16 +2,6 @@
   require 'connect.php';
 	$sql 	= "SELECT * FROM rrcelite_news ORDER BY updated_at DESC LIMIT 10";
 	$result = $db->query($sql);
-  /*
-  $news_id = array();
-  $news_title = array();
-  $news_img = array();
-  while ($row = $result->fetch_assoc()):
-    array_push($news_id, $row['id']);
-    array_push($news_title, $row['title']);
-  endwhile;
-  */
-  
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -41,7 +31,6 @@
         <h3>RRC</h3></a>        
       </div>
       <div id="news_list">
-        <!--<h1>News Archive</h1>-->
         <?php while ($row = $result->fetch_assoc()): ?>
           <a href="content.php?id= <?= $row['id'] ?> ">
             <div class="news_items">

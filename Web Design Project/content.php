@@ -35,11 +35,8 @@
       <span><a href="news.php">News</a></span>
       <a href="about.php">About</a>
       <a href="roster.php">Roster</a>
-      <!--<a href="">Community</a>-->
       <a href="partners.php">Partners</a>
       <a href="contact.php">Contact</a>
-      <!--<a href="register.php">Register</a>
-      <a href="login.php">Login</a>-->
       <form method="post" action="search.php" id="search">
         <input name="q" type="text" size="40" placeholder="Search..." />
       </form>      

@@ -2,16 +2,6 @@
   require 'connect.php';
 	$sql 	= "SELECT * FROM rrcelite_news ORDER BY updated_at DESC LIMIT 10";
 	$result = $db->query($sql);
-  /*
-  $news_id = array();
-  $news_title = array();
-  $news_img = array();
-  while ($row = $result->fetch_assoc()):
-    array_push($news_id, $row['id']);
-    array_push($news_title, $row['title']);
-  endwhile;
-  */
-  
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -30,11 +20,8 @@
       <a href="news.php">News</a>
       <a href="about.php">About</a>
       <a href="roster.php">Roster</a>
-      <!--<a href="">Community</a>-->
       <span><a href="partners.php">Partners</a></span>
       <a href="contact.php">Contact</a>
-      <!--<a href="register.php">Register</a>
-      <a href="login.php">Login</a>-->
       <form method="post" action="search.php" id="search">
         <input name="q" type="text" size="40" placeholder="Search..." />
       </form>      

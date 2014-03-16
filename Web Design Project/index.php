@@ -1,10 +1,12 @@
 <?php
   require 'connect.php';
-	$sql 	= "SELECT * FROM rrcelite_news ORDER BY updated_at DESC LIMIT 12";
+  //news items for current table - current table max 12
+	$sql 	= "SELECT * FROM rrcelite_news ORDER BY updated_at DESC LIMIT 2";
 	$result = $db->query($sql);
   $news_id = array();
   $news_title = array();
   $news_img = array();
+  
   while ($row = $result->fetch_assoc()):
     array_push($news_id, $row['id']);
     array_push($news_title, $row['title']);
@@ -28,20 +30,21 @@
       <a href="about.php">About</a>
       <a href="roster.php">Roster</a>
       <a href="contact.php">Contact</a>
-      <!--<a href="">Community</a>
-      <a href="partners.php">Partners</a>
-      <a href="register.php">Register</a>
-      <a href="login.php">Login</a>-->
       <form method="post" action="search.php" id="search">
         <input name="q" type="text" size="40" placeholder="Search..." />
       </form>      
     </nav>
     <div id="content">      
+      <!-- Top area with logo -->
       <div id="top">
         <a href="index.php"><img src="assets/logob.png" alt="rrc_logo" />
         <h3>RRC</h3></a>        
-      </div>
-      <div id="news">
+      </div>      
+      <!-- News Items - 
+          Needs revamping to show picture that is saved onto db
+          Loads most recent item
+      -->
+      <div id="news">              
         <table>
           <tr>
             <td colspan=2 rowspan=2><a id ="topnews" href="content.php?id= <?= $news_id[0] ?> "><img src="assets/86943.jpg" alt="rrc_logo" /></a></td>
@@ -67,6 +70,8 @@
           </tr>           
         </table>      
       </div>
+      
+      <!-- Sidebar items -->
       <div id="sidebartop">
         <h3>Upcoming Events</h3>
         <ul>
@@ -88,8 +93,10 @@
         <a href="#"><img src="assets/logob.png" alt="rrc_logo" /></a>
         <a href="#"><img src="assets/logob.png" alt="rrc_logo" /></a>
         <a href="#"><img src="assets/logob.png" alt="rrc_logo" /></a>
-      </div>
-      <div id="clear" />
+      </div>      
+      <!-- for float clears -->
+      <div id="clear" />      
+      <!-- Footer Items/sections-->
       <div id="footer">
         <div id="f2">
           <nav id="botnav">
