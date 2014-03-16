@@ -47,7 +47,6 @@
         xmlDoc.load(filename);
         return xmlDoc;
       }
-
       
       var quarter1,quarterlySales,sale,saleDoc;
       var can, ctx, numSamples, xScalar, yScalar, radius, quarter;
@@ -73,12 +72,6 @@
         dataName.push(region2=salesRegion[1].getAttributeNode("region").value);
         dataName.push(region3=salesRegion[2].getAttributeNode("region").value);
         dataName.push(region4=salesRegion[3].getAttributeNode("region").value);
-
-        //console to check values
-        //console.log(region1);
-        //console.log(region2);
-        //console.log(region3);
-        //console.log(region4);
         
         //loop to get sale amount for north west east south
         for(var i=0;i<quarterlySales.length; i++){
@@ -117,16 +110,9 @@
             default:
               break;
           }
-          
-          //console to check values
-          //console.log(saleAmountn);
-          //console.log(saleAmounts);
-          //console.log(saleAmountw);
-          //console.log(saleAmounte);
-          //console.log(quarter1);
         }
       }
- 
+      
         function init() {
             getValues();
             // set this value for your data
@@ -198,6 +184,7 @@
         }
       
     </script>
+  </head>
   <body onload="init()">
     <div align="center">
         <h2>Sales by Region</h2>

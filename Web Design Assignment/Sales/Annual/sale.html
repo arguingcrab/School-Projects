@@ -51,7 +51,6 @@
         xmlDoc.load(filename);
         return xmlDoc;
       }
-
       
       var months,monthlySales,sales,saleAmount,sale,saleDoc;
       var can, ctx, minVal, maxVal, xScalar, yScalar, numSamples, y;
@@ -68,10 +67,6 @@
         sale=saleDoc.documentElement;
         //grab tag monthlySales
         monthlySales=sale.getElementsByTagName("monthlySales");
-        
-        //popup to check if xml file accepted
-        //alert(xmlToString(saleDoc));
-        
         //loops to grab values
         for(var i=0;i<monthlySales.length; i++){
           saleAmount = monthlySales[i].getElementsByTagName("sales")[0].firstChild.nodeValue;
@@ -80,14 +75,8 @@
           //inserting values into array
           dataName.push(months);
           dataValue.push(saleAmount);
-          
-          //console to check values
-          //console.log(saleAmount);
-          //console.log(months);
         }
       }
-      
-     
       
       function init() {
         getValues();
@@ -148,6 +137,7 @@
       }
       
     </script>
+  </head>
   <body onload="init()">
     <div align="center">
       <h2>XYZ Company Sales</h2>
